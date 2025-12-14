@@ -1,0 +1,241 @@
+/**
+ * WooCommerce Dynamic Cart Counter Styles
+ * Version: 1.0.0
+ */
+
+/* Cart Button Container */
+.wc-dynamic-cart-button {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: inherit;
+    transition: opacity 0.3s ease;
+}
+
+.wc-dynamic-cart-button:hover {
+    opacity: 0.8;
+    text-decoration: none;
+}
+
+.wc-dynamic-cart-button:focus {
+    outline: 2px solid #0073aa;
+    outline-offset: 2px;
+}
+
+/* Cart Icon */
+.wc-dynamic-cart-button .dashicons {
+    width: 24px;
+    height: 24px;
+    font-size: 24px;
+    line-height: 1;
+}
+
+/* Cart Text */
+.wc-dynamic-cart-text {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+/* Count Badge */
+.wc-dynamic-cart-count {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    background: #e74c3c;
+    color: #ffffff;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 1.4;
+    min-width: 20px;
+    height: 20px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+/* Hide empty count */
+.wc-dynamic-cart-count:empty {
+    display: none;
+}
+
+/* Count animation when updated */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.wc-dynamic-cart-count.updating {
+    animation: pulse 0.3s ease;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .wc-dynamic-cart-button .dashicons {
+        width: 20px;
+        height: 20px;
+        font-size: 20px;
+    }
+    
+    .wc-dynamic-cart-text {
+        font-size: 14px;
+    }
+    
+    .wc-dynamic-cart-count {
+        font-size: 11px;
+        min-width: 18px;
+        height: 18px;
+        padding: 2px 5px;
+        right: 10px !important;
+    }
+}
+
+
+
+/* Alternative Styles - Add these classes to customize */
+
+/* Rounded Square Badge */
+.wc-dynamic-cart-button.square-badge .wc-dynamic-cart-count {
+    border-radius: 4px;
+}
+
+/* Large Badge */
+.wc-dynamic-cart-button.large-badge .wc-dynamic-cart-count {
+    font-size: 14px;
+    min-width: 24px;
+    height: 24px;
+    top: -10px;
+    right: -12px;
+}
+
+/* No Badge Shadow */
+.wc-dynamic-cart-button.no-shadow .wc-dynamic-cart-count {
+    box-shadow: none;
+}
+
+/* Custom Color Badge (add inline style or override) */
+.wc-dynamic-cart-button.custom-color .wc-dynamic-cart-count {
+    background: #27ae60; /* Green */
+}
+
+.wc-dynamic-cart-button.custom-color-blue .wc-dynamic-cart-count {
+    background: #3498db; /* Blue */
+}
+
+.wc-dynamic-cart-button.custom-color-orange .wc-dynamic-cart-count {
+    background: #f39c12; /* Orange */
+}
+
+/* Inline Badge (next to icon, not floating) */
+.wc-dynamic-cart-button.inline-badge {
+    gap: 4px;
+}
+
+.wc-dynamic-cart-button.inline-badge .wc-dynamic-cart-count {
+    position: static;
+    border-radius: 12px;
+    padding: 2px 8px;
+    margin-left: 4px;
+}
+
+/* Button Style Cart */
+.wc-dynamic-cart-button.button-style {
+    background: #0073aa;
+    color: #ffffff;
+    padding: 10px 16px;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+.wc-dynamic-cart-button.button-style:hover {
+    background: #005177;
+    opacity: 1;
+}
+
+.wc-dynamic-cart-button.button-style .wc-dynamic-cart-count {
+    background: #ffffff;
+    color: #0073aa;
+}
+
+/* Cart button container */
+.cart-contents,
+.wc-dynamic-cart-button {
+    position: relative;
+    display: inline-block;
+}
+
+/* Cart count badge */
+.cart-count,
+.wc-dynamic-cart-count {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    background: #e74c3c;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 1;
+    min-width: 18px;
+    text-align: center;
+}
+
+/* Hide when empty */
+.cart-count:empty,
+.wc-dynamic-cart-count:empty {
+    display: none;
+}
+
+
+
+/* Accessibility - High Contrast Mode */
+@media (prefers-contrast: high) {
+    .wc-dynamic-cart-count {
+        border: 2px solid currentColor;
+    }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    .wc-dynamic-cart-button {
+        color: #ffffff;
+    }
+    
+    .wc-dynamic-cart-count {
+        background: #e74c3c;
+        color: #ffffff;
+    }
+}
+
+/* RTL Support */
+[dir="rtl"] .wc-dynamic-cart-count {
+    right: auto;
+    left: -10px;
+}
+
+[dir="rtl"] .wc-dynamic-cart-button.inline-badge .wc-dynamic-cart-count {
+    margin-left: 0;
+    margin-right: 4px;
+}
+
+/* Print Styles - Hide count in print */
+@media print {
+    .wc-dynamic-cart-count {
+        display: none;
+    }
+}
+
